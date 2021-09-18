@@ -6,8 +6,8 @@ def crossMargePDF(pdf_name1, pdf_name2):
 
     file_name = pdf_name2.split('.')[0]
 
-    pdf_1 = PdfFileReader(open(pdf_name1, "rb"))
-    pdf_2 = PdfFileReader(open(pdf_name2, "rb"))
+    pdf_1 = PdfFileReader(open(f"origin/{pdf_name1}", "rb"))
+    pdf_2 = PdfFileReader(open(f"origin/{pdf_name2}", "rb"))
 
     # output pdf create
     output = PdfFileWriter()
@@ -19,7 +19,7 @@ def crossMargePDF(pdf_name1, pdf_name2):
         output.addPage(page_1)
         output.addPage(page_2)
 
-    output_stream = open(f"{file_name}_cross.pdf", "wb")
+    output_stream = open(f"cross/{file_name}_cross.pdf", "wb")
     output.write(output_stream)
     output_stream.close()
 
